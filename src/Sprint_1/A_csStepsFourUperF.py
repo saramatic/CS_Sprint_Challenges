@@ -1,0 +1,8 @@
+"""
+
+Understand
+Plan
+Execute
+Reflect
+
+"""
