@@ -25,4 +25,23 @@ A string that contains only lowercase English letters.
 The first non-repeating character in s of '_' if there are no characters that do not repeat.
 """
 def first_not_repeating_character(s):
+    """
+    :type s: str
+    :rtype: int
+    """
+    count = {}
+
+    # use dict count to Count frequency of letters
+    for char in range(len(s)):
+        if s[char] not in count:
+            count[s[char]] = 1
+        else :
+            count[s[char]] += 1
+
+    # search for 1st
+
+    for index, char in enumerate(s):
+        if count[char] == 1:
+            return char
+    return '_'
     

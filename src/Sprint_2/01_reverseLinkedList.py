@@ -32,5 +32,28 @@ Reversed l.
 #     self.value = x
 #     self.next = None
 #
-def reverseLinkedList(l):
 
+def reverseLinkedList(l):
+        prev = None
+    while l:
+        temp = l
+        l = l.next
+        temp.next = prev
+        prev = temp
+    return prev
+
+
+"""
+Given a Singly Linked List
+reverse the Singly Linked List
+1. we set a prev to be temp head to attach to
+2. we are going to transverse the linked list
+3. while transversing the list we will be switch in the pointer to point to the prev
+"""
+
+
+"""
+The space complexity is O(1) because the operation is in-place memory.
+The time complexity is O(1) because the linked list is of fixed length.
+ and we are iterating once with a fixed length. which is constant
+"""    

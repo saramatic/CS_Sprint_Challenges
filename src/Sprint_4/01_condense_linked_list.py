@@ -24,4 +24,22 @@ Singly-linked lists are already defined with this interface:
 #     self.next = None
 #
 def condense_linked_list(node):
+    seen = {}
+    
+    cur = node
+    prev = None
+    
+    while cur:
+        if cur.value in seen:
+            # remove node
+            prev.next = cur.next
+            # remove cur
+            cur = None
+        else:
+            # have not seen before
+            seen[cur.value] = 1
+            prev = cur
+        cur = prev.next
+        
+    return node
 

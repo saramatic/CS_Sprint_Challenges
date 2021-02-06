@@ -32,3 +32,20 @@ Output:
 #     self.right = None
 def csBinaryTreeInvert(root):
 
+    def dfs(node):
+        #base case 
+        if not node:
+            return
+            
+        #dfs on left
+        dfs(node.left)
+        #dfs on right
+        dfs(node.right)
+        
+        # python swap - switch nodes
+        node.left, node.right =  node.right, node.left
+    
+    dfs(root)
+    
+    return root
+

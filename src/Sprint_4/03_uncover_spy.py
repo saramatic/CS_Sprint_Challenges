@@ -50,4 +50,29 @@ Array of pairs indicating who each person in trusts.
 The identifier of the spy.
 """
 def uncover_spy(n, trust):
+    # base case
+    if len(trust) < n-1:
+        return -1
+     # indegree ---> num of directed edges into a vertex == N-1
+    # outdegree ---> num of directed edges from a vertex == 0
+    
+    # N+1 so not to go out of bounds, accounts for 0
+    # create an indegree list       
+    indegree = [0] * (n+1)
+     # create an outdegree list
+    outdegree = [0] * (n+1)
+    
+    # iterate over the trust and extract a and b
+    for a, b in trust:
+        outdegree[a] += 1
+        indegree[b] += 1
+     
+    # iterate check indegree and outdegree    
+    for i in range(1, n+1):
+        if indegree[i] == n-1 and outdegree[i] == 0:
+            return i
+            
+    # otherwise return -1 False        
+    return -1
+© 2021 GitHub, Inc.
     
